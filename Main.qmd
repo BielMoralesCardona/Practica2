@@ -1,6 +1,8 @@
 # Practica 2
 ### Carles Westendorf Vidal, Javier Cisneros Serra, Gabriel Morales Cardona
 
+## Respondiendo a la pregunta 5: ¿Hay alguna enfermedad que influya en la calidad de voz? EPOC, reflujo, endocrina, cardio-vascular, etc.
+
 ```{r, echo=FALSE, message=FALSE}
 library(tidyverse)
 ```
@@ -16,14 +18,56 @@ raw_data = read.csv("Salut_Vocal_anonimizada.csv", header=TRUE, encoding = 'UTF-
 
 ```{r}
 str(raw_data)
-nomsColumnes= c("ID", "Import_veu", "Sexe", "Lloc_Feina", "cos_docent", "edat", "practica_esport", "import_esport", "qualitat_son", "consum_cafe", "consum_tabac", "consum_alcohol", "consum_gas", "dieta_equil", "malalties", "patologia", "diagnosticat", "sintomes_darrerMes", "operat_cordes", "inici_alteracio", "baixa_laboral", "detalls_baixa", "problemes2223", "formacio_saludVocal", "consum_medicaments", "rutina_higiene", "activitats_oci", 1:10)
+nomsColumnes= c("ID", "Import_veu", "Sexe", "Lloc_Feina", "cos_docent", "edat", "practica_esport", "import_esport", "qualitat_son", "consum_cafe", "consum_tabac", "consum_alcohol", "consum_gas", "dieta_equil", "malalties", "patologia", "diagnosticat", "sintomes_darrerMes", "operat_cordes", "inici_alteracio", "baixa_laboral", "detalls_baixa", "problemes2223", "formacio_saludVocal", "consum_medicaments", "rutina_higiene", "activitats_oci", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "total")
 
 data <- as_tibble(raw_data)
 colnames(data) <- nomsColumnes
-data <- data %>% mutate(puntTotal = , case_when())
-data <- data %>% mutate(puntTotal = 1+2+3+4+5+6+7+8+9+10)
+data <- data %>% mutate("nueva1"=factor(a, levels=c("Mai", "Gairebé mai", "A vegades", "Gairebé sempre", "Sempre"), labels= c(0,1,2,3,4)))
+data <- data %>% mutate("nueva2"=factor(b, levels=c("Mai", "Gairebé mai", "A vegades", "Gairebé sempre", "Sempre"), labels= c(0,1,2,3,4)))
+data <- data %>% mutate("nueva3"=factor(c, levels=c("Mai", "Gairebé mai", "A vegades", "Gairebé sempre", "Sempre"), labels= c(0,1,2,3,4)))
+data <- data %>% mutate("nueva4"=factor(d, levels=c("Mai", "Gairebé mai", "A vegades", "Gairebé sempre", "Sempre"), labels= c(0,1,2,3,4)))
+data <- data %>% mutate("nueva5"=factor(e, levels=c("Mai", "Gairebé mai", "A vegades", "Gairebé sempre", "Sempre"), labels= c(0,1,2,3,4)))
+data <- data %>% mutate("nueva6"=factor(f, levels=c("Mai", "Gairebé mai", "A vegades", "Gairebé sempre", "Sempre"), labels= c(0,1,2,3,4)))
+data <- data %>% mutate("nueva7"=factor(g, levels=c("Mai", "Gairebé mai", "A vegades", "Gairebé sempre", "Sempre"), labels= c(0,1,2,3,4)))
+data <- data %>% mutate("nueva8"=factor(h, levels=c("Mai", "Gairebé mai", "A vegades", "Gairebé sempre", "Sempre"), labels= c(0,1,2,3,4)))
+data <- data %>% mutate("nueva9"=factor(i, levels=c("Mai", "Gairebé mai", "A vegades", "Gairebé sempre", "Sempre"), labels= c(0,1,2,3,4)))
+data <- data %>% mutate("nueva10"=factor(j, levels=c("Mai", "Gairebé mai", "A vegades", "Gairebé sempre", "Sempre"), labels= c(0,1,2,3,4)))
+
+data <- data %>% mutate(total= as.numeric(nueva1) + as.numeric(nueva2) + as.numeric(nueva3) + as.numeric(nueva4) + as.numeric(nueva5) + as.numeric(nueva6) + as.numeric(nueva7) + as.numeric(nueva8) + as.numeric(nueva9) + as.numeric(nueva10)-10) 
 ```
 
 
+## Anàlisi.
 
-Mutate, crear var total y sumar resultados (por columnas) (mapping 0 to 4 each answer)
+Para comprobar si alguna enfermedad influye en la calidad de voz, cargaremos subtablas con solo con los individuos que padezcan cada patología y compararemos los indices de las últimas preguntas.
+
+```{r}
+gastrointestinal <- data %>% filter(malalties=="Gastrointestinal (Refluix gastro-esfofàgic")
+endocrina <- data %>% filter(malalties=="Endocrina")
+esquena <- data %>% filter(malalties=="Patologia d'esquena crónica")
+pulmonar <- data %>% filter(malalties=="Pulmonar (asma, al·lèrgia, EPOC)")
+cardio <- data %>% filter(malalties=="Cardio-vascular")
+ansio <- data %>% filter(malalties=="Patologia ansio-depresiva crónica")
+cap <- data %>% filter(malalties=="Cap de les esmentades anteriorment")
+```
+
+A continuación, comparemos las medianas de la evaluación de la voz de cada grupo:
+NÓTESE que el grupo gastrointestinal no ha obtenido ninguna respuesta. Por esa razón no podemos compararlo
+
+```{r}
+medianas <- c(
+  mean(endocrina$total), 
+  mean(esquena$total), 
+  mean(pulmonar$total), 
+  mean(cardio$total), 
+  mean(ansio$total), 
+  mean(cap$total)
+)
+noms_comparats = c("endocrina", "esquena", "pulmonar", "cardio", "ansio", "cap")
+```
+
+
+```{r}
+barplot(medianas)
+```
+
