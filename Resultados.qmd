@@ -111,74 +111,29 @@ glimpse(data)
 
 
 ## P1: ¿Los profesores dan menos importancia a la voz que al deporte o alimentación?
-
-**Grupo: joan_camps (Joan, Gerard y Miki)**
-
-El gráfico no está mal, pero el más adecuado sería un boxplot o un violin plot. Mejorad estos gráficos y comentad los resultados. 
-
-```{r}
- data_long <- data %>%
-  pivot_longer(cols = c(importancia_voz, 
-                         importancia_deporte, 
-                         dieta_saludable),
-                names_to = "categoria",
-                values_to = "valor")
-
-ggplot(data_long, aes(x=categoria, y=valor, fill=categoria)) + 
-  geom_violin(trim=FALSE)+
-  geom_boxplot(width=0.1, fill="white")+
-  labs(title="",x="", y = "Importancia (valores de 0 a 10)") +
-  theme_classic() +
-  theme(
-    legend.position="none",
-    plot.title = element_text(size=11)
-  ) + 
-  scale_x_discrete(labels = c("dieta_saludable" = "Alimentación", "importancia_deporte" = "Deporte", "importancia_voz" = "Voz")) +
-  scale_y_continuous(limits=c(0,10),breaks = seq(0, 10, 1)) 
-summary(data_long$valor ~data$importancia_voz)
-```
-
-Ejecutad un ANOVA de bloques para ver si hay diferencias significativas entre las tres categorías. [Ayuda](https://aprender-uib.github.io/MatesII/anova.html#anova-de-blocs).
-
 ## P2: ¿Hay mayor incidencia de síntomas vocales en maestras de infantil?
-
-**Grupo: rebm (Rebeca, Eulalia, Biel, Marc)**
-
-El documento de Quarto no compila, ni descargándolo del repositorio de Github. 
-
-Lo primero que debéis hacer es arreglar los niveles de cada factor, son 20 para cuerpo_docente y 15 para síntomas.
-Podéis hacer un diagrama de barras agrupadas entre cuerpo docente y número de síntomas.
-
-[Ayuda](https://rpubs.com/hllinas/R_Barras_ggplot_grupo)
-
-
 ## P3: ¿Hay alguna edad con mayor incidencia de síntomas vocales?
-
-**Grupo: los_angeles (Sergio,Àngela, Jaume)**
-
-
-Para responder esta pregunta podeis dibujar un diagrama de barras agrupadas entre edad y síntomas. Edad es un factor con 4 niveles y tenéis razón en cuanto a que no hace falta diferenciar por tipo de síntomas vocales.
-
-[Ayuda](https://rpubs.com/hllinas/R_Barras_ggplot_grupo)
-
-El barplot de edad debe estar ordenado de menor a mayor a mayor edad. 
-
-Luego, deberías hacer un test inferencial para ver si hay diferencias significativas entre las edades y los síntomas.
-
-[Ayuda](https://aprender-uib.github.io/MatesII/contrastos-dindepend%C3%A8ncia-i-homogene%C3%AFtat.html#test-chi2-dindepend%C3%A8ncia)
-
-
 ## P4: ¿Qué factores influyen en una mala calidad de voz? Café, tabaco, alcohol, bebidas con gas, etc
 
-**Grupo: el_cid: Carlos,Irene, Didac**
-
-Muy claro el informe y bien la idea del boxplot entre cada factor y el score. Sin embargo, el código no funciona bien para el cálculo del score. Usad los resultados que os presento aquí para hacer el boxplot.
- 
- Luego, pensad en en una prueba inferencial, si se puede aplicar
- 
- [Ayuda](https://aprender-uib.github.io/MatesII/anova.html#anova-de-blocs).
 
 ## P5: ¿Hay alguna enfermedad que influya en la calidad de la voz? EPOC, reflujo, endocrina, cardio-vascular, etc
+
+Considerada la base de datos común limpiada, empezaremos por filtrar los 
+
+```{r}
+gastrointestinal <- data %>% filter(malalties=="Gastrointestinal (Refluix gastro-esfofàgic")
+endocrina <- data %>% filter(malalties=="Endocrina")
+esquena <- data %>% filter(malalties=="Patologia d'esquena crónica")
+pulmonar <- data %>% filter(malalties=="Pulmonar (asma, al·lèrgia, EPOC)")
+cardio <- data %>% filter(malalties=="Cardio-vascular")
+ansio <- data %>% filter(malalties=="Patologia ansio-depresiva crónica")
+cap <- data %>% filter(malalties=="Cap de les esmentades anteriorment")
+```
+
+
+
+
+
 
 **Grupo tulipanes_alirios: Biel, Carlos, Javi**
 
@@ -189,39 +144,10 @@ Luego, hacer un ANOVA de bloques para ver si hay diferencias significativas entr
 
 [Ayuda](https://aprender-uib.github.io/MatesII/anova.html#anova-de-blocs).
 
+
+
+
 ## P6: ¿Hay más bajas por tema de voz al principio del curso?
-
-No asignada
-
 ## P7: ¿El cuidado de voz mejora la calidad de la misma? ¿Cuál es la mejor medida?
-
-**Grupo escuderia_ferrrari: Álvaro, Dardos, Miquel**
-
-No encuentro en mi correo vuestra entrega. En todo caso hay que cruzar el score VIH con la pregunta si el participante sigue una rutina de higiene vocal.
-
-Hacer un boxplot entre la higiene vocal y el score. Y luego una prueba inferencial.
-
-
-
 # P8: ¿Hay alguna medicación que influya en la calidad de la voz?
-
-**Grupo: tojumo (Melción, Albert, Miquel Angelo)**
-
-Entregaron un fichero de nombre: part_Albert que debéis mejorar.
-
-Arreglar el boxplot.
-
-ANOVA para la parte inferencial.
-
-
-## Extra: ¿Hay algún trabajo con uso profesional de la voz, además de dar clase, que haga tener mejor calidad de la voz?
-
-No asignada
-
-## Objetivo: 
-
-**¿La formación en voz influye en la percepción de calidad de la misma?**
-
-¿Ideas?
-
 

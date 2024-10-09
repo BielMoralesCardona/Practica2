@@ -3,7 +3,7 @@
 
 ## Respondiendo a la pregunta 5: ¿Hay alguna enfermedad que influya en la calidad de voz? EPOC, reflujo, endocrina, cardio-vascular, etc.
 
-```{r, echo=FALSE, message=FALSE}
+```{r}
 library(tidyverse)
 ```
 
