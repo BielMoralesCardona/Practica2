@@ -119,109 +119,40 @@ glimpse(data)
 
 ## P5: ¿Hay alguna enfermedad que influya en la calidad de la voz? EPOC, reflujo, endocrina, cardio-vascular, etc
 
-Considerada la base de datos común limpiada, empezaremos por filtrar los datos por enfermedades
+Considerada la base de datos común limpiada, empezaremos por filtrar los datos por enfermedades:
+
+Parece haber más niveles de los que hemos detectado que corresponden con personas que han contestado a la opción "Otro: ___" y escrito distintas enfermedades.
+
+Para afrontar este punto cambiareos los niveles de la variable diagnostico con el doble objetivo de, por un lado, hacer crecer los tamaños de las muestras de cada enfermedad y, por otro lado, poder representar mejor los datos:
 
 ```{r}
-gastrointestinal <- data %>% filter(diagnostico=="Gastrointestinal (Refluix gastro-esfofàgic)")
-endocrina <- data %>% filter(diagnostico=="Endocrina")
-esquena <- data %>% filter(diagnostico=="Patologia d'esquena crónica")
-pulmonar <- data %>% filter(diagnostico=="Pulmonar (asma, al·lèrgia, EPOC)")
-cardio <- data %>% filter(diagnostico=="Cardio-vascular")
-ansio <- data %>% filter(diagnostico=="Patologia ansio-depresiva crónica")
-cap <- data %>% filter(diagnostico=="Cap de les esmentades anteriorment")
-```
-
-
-Obtendremos el número de individuos que padecen de las anteriores enfermedades:
-
-A continuación visualizemos los datos con un boxplot. Vamos a mostrar los valores de VHI, el score de la calidad de voz, de cada uno de los grupos de enfermedades.
-
-Representamos un boxplot con los puntos a lo bruto:
-```{r}
-data %>%
-  mutate(diagnostico = fct_reorder(diagnostico, VHI, .fun='length' )) %>%
-  ggplot( aes(x=diagnostico, y=VHI, fill=diagnostico)) +
-    geom_boxplot() +
-    scale_fill_viridis(discrete = TRUE, alpha=0.6) +
-    geom_jitter(color="black", size=0.4, alpha=0.9) +
-    theme_ipsum() +
-    theme(
-      legend.position="none",
-      plot.title = element_text(size=11)
-    ) +
-    ggtitle("A boxplot with jitter") +
-    xlab("")
-```
-
-A continuación un boxplot básico:
-```{r}
-data %>%
-  mutate(diagnostico = fct_reorder(diagnostico, VHI, .fun='length' )) %>%
-  ggplot( aes(x=diagnostico, y=VHI, fill=diagnostico)) +
-    geom_boxplot() +
-    scale_fill_viridis(discrete = TRUE, alpha=0.6, option="A") +
-    theme_ipsum() +
-    theme(
-      legend.position="none",
-      plot.title = element_text(size=11)
-    ) +
-    ggtitle("Basic boxplot") +
-    xlab("")
-
-```
-
-Y, finalmente, uno de violín:
-```{r}
-data %>%
-  mutate(diagnostico = fct_reorder(diagnostico, VHI, .fun='length' )) %>%
-  ggplot( aes(x=diagnostico, y=VHI, fill=diagnostico)) +
-    geom_violin() +
-    scale_fill_viridis(discrete = TRUE, alpha=0.6, option="A") +
-    theme_ipsum() +
-    theme(
-      legend.position="none",
-      plot.title = element_text(size=11)
-    ) +
-    ggtitle("Violin chart") +
-    xlab("")
-```
-
-Notemos que debemos hacer varias consideraciones. 
-
-La primera es que parece haber más niveles de los que hemos detectado que corresponden con personas que han contestado a la opción "Otro: ___" y escrito distintas enfermedades.
-
-La segunda es que hay que cambiar la visualizació de la representación para entenderla mejor.
-
-Para afrontar el primer punto podemos reordenar el tibble de manera que podamos considerar las perosnas que han contestado "Otro: ___" un nivel aparte:
-
-```{r}
-levels(data$diagnostico)
-
 data_opt <- data %>%
   mutate(diagnostico = fct_collapse(diagnostico,
                                     
-    Gastrointestinal = c("coleacistitis", "Disfàgia", "Gastritis  crònica i al·lèrgia (no permet marca +1 opció)", "Gastrointestinal (Refluix gastro-esfofàgic)", "Gastrointestinal i al·lèrgia (no me deixa marcar més d'una opció)", "problemes gastrointestinal: restrenyiment, problemes de gasos...."),
+    "Gastrointestinal" = c("coleacistitis", "Disfàgia", "Gastritis  crònica i al·lèrgia (no permet marca +1 opció)", "Gastrointestinal (Refluix gastro-esfofàgic)", "Gastrointestinal i al·lèrgia (no me deixa marcar més d'una opció)", "problemes gastrointestinal: restrenyiment, problemes de gasos...."),
     
-    Endocrina  = c("Endocrina", "SOP"),
+    "Endocrina"  = c("Endocrina", "SOP"),
     
-    Patologia_esquena_cronica = c("Patologia d'esquena crónica", "Hernia de hiatus, trocanteritis, lumbars"),
+    "Patologia d'esquena crónica" = c("Patologia d'esquena crónica", "Hernia de hiatus, trocanteritis, lumbars"),
     
-    Pulmonar = c("Faringitis crónica", "Pulmonar (asma, al·lèrgia, EPOC)", "Noc"),
+    "Pulmonar" = c("Faringitis crónica", "Pulmonar (asma, al·lèrgia, EPOC)", "Noc"),
     
-    Cardio_vascular = c("Cardio-vascular", "cardiopatía congénita" , "Patrón de Brugada", "Tensió alta"),
+    "Cardio-vascular" = c("Cardio-vascular", "cardiopatía congénita" , "Patrón de Brugada", "Tensió alta"),
     
-    Patologia_ansio_depresiva_cronica = c("Patologia ansio-depresiva crónica"),
+    "Patologia ansio-depresiva crónica" = c("Patologia ansio-depresiva crónica"),
     
-    Cap = c("-", "cap", "Cap de les esmentades anteriorment", "De cap malaltia crònica."),
+    "Sense Patologia" = c("-", "cap", "Cap de les esmentades anteriorment", "De cap malaltia crònica."),
     
-    Cordes_vocals = c("Càncer cordes vocals", "disfonia", "Nódulo cuerdas vocales", "Nòduls"),
+    # "Cordes vocals" = c("Càncer cordes vocals", "disfonia", "Nódulo cuerdas vocales", "Nòduls"),
     
-    Altres = c("Insuficiencia renal ", "Lupus eritematoso sistémico", "Migranya", "osteopenia", "pedres al ronyó", "Síndrome Raynaud", "Tumor ronyó", "Vertigen") 
+    "Patologies no considerades" = c("Insuficiencia renal ", "Lupus eritematoso sistémico", "Migranya", "osteopenia", "pedres al ronyó", "Síndrome Raynaud", "Tumor ronyó", "Vertigen", "Càncer cordes vocals", "disfonia", "Nódulo cuerdas vocales", "Nòduls") 
     
   ))
 
 levels(data_opt$diagnostico)
 ```
+
+Hemos conservado los grupos preestablecidos y creado dos más con los individuos que han ecrito sus enfermedades en la opción "Otro: ______". Han sido Altres que reune enfermedades que no se pueden asociar con ningún grupo anterior, y Cordes_vocals que reune enfermedades que afectan directamente en las cuerdas vocales como cáncer o nódulos en esa zona.
 
 Mostramos la cantidad de inidividuos en cada nivel:
 ```{r}
@@ -233,21 +164,21 @@ Y volvemos a representar los datos (observamos que los representamos ordenandolo
 ```{r}
 data_opt %>%
   mutate(diagnostico = fct_reorder(diagnostico, VHI, .fun='length' )) %>%
-  ggplot( aes(x=diagnostico, y=VHI, fill=diagnostico)) +
+  ggplot( aes(x=diagnostico, y=VHI, fill = diagnostico)) +
     geom_boxplot() +
     scale_fill_viridis(discrete = TRUE, alpha=0.6) +
-    geom_jitter(color="black", size=0.4, alpha=0.9) +
+    geom_jitter(color="black", size=0.4, alpha=0.9, position = position_jitter(width = 0.05)) +
     theme_ipsum() +
     theme(
-      axis.text.x = element_text(angle = 30, hjust = 0.9),
+      axis.text.x = element_text(angle = 50, hjust = 0.9, size = 8),
       legend.position="none",
       plot.title = element_text(size=11)
     ) +
     ggtitle("VHI por enfermedad") +
-    xlab("Enfermedades de los individuos")
+    xlab("Grupos según diagnostico")
 ```
 
-Ahora con un gráfico de violines:
+Ahora con un gráfico de violines para, tal vez, comprender mejor los datos:
 ```{r}
 data_opt %>%
   mutate(diagnostico = fct_reorder(diagnostico, VHI, .fun='length' )) %>%
@@ -256,12 +187,12 @@ data_opt %>%
     scale_fill_viridis(discrete = TRUE, alpha=0.6, option="A") +
     theme_ipsum() +
     theme(
-      axis.text.x = element_text(angle = 30, hjust = 0.9),
+      axis.text.x = element_text(angle = 50, hjust = 0.9, size = 9),
       legend.position="none",
       plot.title = element_text(size=11)
     ) +
-    ggtitle("Violin chart") +
-    xlab("")
+    ggtitle("VHI por enfermedad") +
+    xlab("Grupos según diagnostico")
 ```
 
 
