@@ -27,7 +27,7 @@ Leemos los datos del fichero "Salut_Vocal_anonimizada.csv" y cambiamos los nombr
 
 ```{r}
 raw_data<-read.csv("Salut_Vocal_anonimizada.csv",
-                   header=TRUE, sep=";")
+                   header=TRUE, sep=";", encoding='UTF-8')
 
 raw_data <- raw_data %>% select(-X) %>% 
    rename(
@@ -196,6 +196,9 @@ data_opt %>%
 ```
 
 Comprovemos la normalidad de los datos para intentar aplicar un ANOVA paramétrico:
+
+
+
 ```{r}
 #modelo_anova <- aov(VHI ~ diagnostico, data = data_opt)
 
@@ -228,7 +231,17 @@ shapiro.test(data_opt[data_opt$diagnostico=="Cardio-vascular",]$VHI)$p.value
 shapiro.test(data_opt[data_opt$diagnostico=="Patologia ansio-depresiva crónica",]$VHI)$p.value
 ```
 
-Notem que podem asumir que totes segueixen una distribució normal excepte els grups "Sense patologia" i "Pulmonar"
+Notemos que podemos asumir que todas siguen una distribución normal excepot los grupos "Sense patologia" y "Pulmonar". De este modo, no podemos continuar la prueba con un test paramétrico, tenemos que comprovar las medias con un test de ANOVA no paramétrico.
+
+```{r}
+friedman.test(VHI ~ diagnostico, data = data_opt)
+```
+no hay dif???
+
+```{r}
+pairwise.wilcox.test(data_opt$VHI, data_opt$diagnostico, p.adjust.method = "bonferroni")
+```
+
 
 **Grupo tulipanes_alirios: Biel, Carlos, Javi**
 
