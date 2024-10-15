@@ -195,8 +195,40 @@ data_opt %>%
     xlab("Grupos según diagnostico")
 ```
 
+Comprovemos la normalidad de los datos para intentar aplicar un ANOVA paramétrico:
+```{r}
+#modelo_anova <- aov(VHI ~ diagnostico, data = data_opt)
 
+#summary(modelo_anova)
 
+#residuos <- residuals(modelo_anova)
+
+shapiro.test(data_opt[data_opt$diagnostico=="Sense Patologia",]$VHI)$p.value
+
+```
+```{r}
+shapiro.test(data_opt[data_opt$diagnostico=="Endocrina",]$VHI)$p.value
+```
+```{r}
+shapiro.test(data_opt[data_opt$diagnostico=="Pulmonar",]$VHI)$p.value
+```
+```{r}
+shapiro.test(data_opt[data_opt$diagnostico=="Gastrointestinal",]$VHI)$p.value
+```
+```{r}
+shapiro.test(data_opt[data_opt$diagnostico=="Patologies no considerades",]$VHI)$p.value
+```
+```{r}
+shapiro.test(data_opt[data_opt$diagnostico=="Patologia d'esquena crónica",]$VHI)$p.value
+```
+```{r}
+shapiro.test(data_opt[data_opt$diagnostico=="Cardio-vascular",]$VHI)$p.value
+```
+```{r}
+shapiro.test(data_opt[data_opt$diagnostico=="Patologia ansio-depresiva crónica",]$VHI)$p.value
+```
+
+Notem que podem asumir que totes segueixen una distribució normal excepte els grups "Sense patologia" i "Pulmonar"
 
 **Grupo tulipanes_alirios: Biel, Carlos, Javi**
 

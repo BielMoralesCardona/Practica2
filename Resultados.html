@@ -1,0 +1,932 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.4.555">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="dcterms.date" content="2024-10-15">
+
+<title>Síntomas vocales en profesores</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="Resultados_files/libs/clipboard/clipboard.min.js"></script>
+<script src="Resultados_files/libs/quarto-html/quarto.js"></script>
+<script src="Resultados_files/libs/quarto-html/popper.min.js"></script>
+<script src="Resultados_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="Resultados_files/libs/quarto-html/anchor.min.js"></script>
+<link href="Resultados_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="Resultados_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="Resultados_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="Resultados_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="Resultados_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+
+
+</head>
+
+<body>
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+<div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+  <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#lectura-y-limpieza-de-los-datos" id="toc-lectura-y-limpieza-de-los-datos" class="nav-link active" data-scroll-target="#lectura-y-limpieza-de-los-datos">Lectura y limpieza de los datos</a></li>
+  <li><a href="#p1-los-profesores-dan-menos-importancia-a-la-voz-que-al-deporte-o-alimentación" id="toc-p1-los-profesores-dan-menos-importancia-a-la-voz-que-al-deporte-o-alimentación" class="nav-link" data-scroll-target="#p1-los-profesores-dan-menos-importancia-a-la-voz-que-al-deporte-o-alimentación">P1: ¿Los profesores dan menos importancia a la voz que al deporte o alimentación?</a></li>
+  <li><a href="#p2-hay-mayor-incidencia-de-síntomas-vocales-en-maestras-de-infantil" id="toc-p2-hay-mayor-incidencia-de-síntomas-vocales-en-maestras-de-infantil" class="nav-link" data-scroll-target="#p2-hay-mayor-incidencia-de-síntomas-vocales-en-maestras-de-infantil">P2: ¿Hay mayor incidencia de síntomas vocales en maestras de infantil?</a></li>
+  <li><a href="#p3-hay-alguna-edad-con-mayor-incidencia-de-síntomas-vocales" id="toc-p3-hay-alguna-edad-con-mayor-incidencia-de-síntomas-vocales" class="nav-link" data-scroll-target="#p3-hay-alguna-edad-con-mayor-incidencia-de-síntomas-vocales">P3: ¿Hay alguna edad con mayor incidencia de síntomas vocales?</a></li>
+  <li><a href="#p4-qué-factores-influyen-en-una-mala-calidad-de-voz-café-tabaco-alcohol-bebidas-con-gas-etc" id="toc-p4-qué-factores-influyen-en-una-mala-calidad-de-voz-café-tabaco-alcohol-bebidas-con-gas-etc" class="nav-link" data-scroll-target="#p4-qué-factores-influyen-en-una-mala-calidad-de-voz-café-tabaco-alcohol-bebidas-con-gas-etc">P4: ¿Qué factores influyen en una mala calidad de voz? Café, tabaco, alcohol, bebidas con gas, etc</a></li>
+  <li><a href="#p5-hay-alguna-enfermedad-que-influya-en-la-calidad-de-la-voz-epoc-reflujo-endocrina-cardio-vascular-etc" id="toc-p5-hay-alguna-enfermedad-que-influya-en-la-calidad-de-la-voz-epoc-reflujo-endocrina-cardio-vascular-etc" class="nav-link" data-scroll-target="#p5-hay-alguna-enfermedad-que-influya-en-la-calidad-de-la-voz-epoc-reflujo-endocrina-cardio-vascular-etc">P5: ¿Hay alguna enfermedad que influya en la calidad de la voz? EPOC, reflujo, endocrina, cardio-vascular, etc</a></li>
+  <li><a href="#p6-hay-más-bajas-por-tema-de-voz-al-principio-del-curso" id="toc-p6-hay-más-bajas-por-tema-de-voz-al-principio-del-curso" class="nav-link" data-scroll-target="#p6-hay-más-bajas-por-tema-de-voz-al-principio-del-curso">P6: ¿Hay más bajas por tema de voz al principio del curso?</a></li>
+  <li><a href="#p7-el-cuidado-de-voz-mejora-la-calidad-de-la-misma-cuál-es-la-mejor-medida" id="toc-p7-el-cuidado-de-voz-mejora-la-calidad-de-la-misma-cuál-es-la-mejor-medida" class="nav-link" data-scroll-target="#p7-el-cuidado-de-voz-mejora-la-calidad-de-la-misma-cuál-es-la-mejor-medida">P7: ¿El cuidado de voz mejora la calidad de la misma? ¿Cuál es la mejor medida?</a></li>
+  <li><a href="#p8-hay-alguna-medicación-que-influya-en-la-calidad-de-la-voz" id="toc-p8-hay-alguna-medicación-que-influya-en-la-calidad-de-la-voz" class="nav-link" data-scroll-target="#p8-hay-alguna-medicación-que-influya-en-la-calidad-de-la-voz">P8: ¿Hay alguna medicación que influya en la calidad de la voz?</a></li>
+  </ul>
+</nav>
+</div>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Síntomas vocales en profesores</h1>
+<p class="subtitle lead">20582- Análisis de Datos para el GMAT</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">October 15, 2024</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="lectura-y-limpieza-de-los-datos" class="level2">
+<h2 class="anchored" data-anchor-id="lectura-y-limpieza-de-los-datos">Lectura y limpieza de los datos</h2>
+<p>Leemos los datos del fichero “Salut_Vocal_anonimizada.csv” y cambiamos los nombres de las variables.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>raw_data<span class="ot">&lt;-</span><span class="fu">read.csv</span>(<span class="st">"Salut_Vocal_anonimizada.csv"</span>,</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>                   <span class="at">header=</span><span class="cn">TRUE</span>, <span class="at">sep=</span><span class="st">";"</span>)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>raw_data <span class="ot">&lt;-</span> raw_data <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="sc">-</span>X) <span class="sc">%&gt;%</span> </span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>   <span class="fu">rename</span>(</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">Importancia_voz =</span> <span class="st">"De.l.1.al.10.quina.importancia.té.la.veu.per.a.vostè."</span>,</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">Sexo =</span> <span class="st">"Sexe"</span>,</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">Lugar_trabajo=</span><span class="st">"On.fa.feina."</span>,</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">Cuerpo_docente=</span><span class="st">"Cos.docent"</span>,</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">Edad=</span><span class="st">"Quina.edat.té."</span>,</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">Actividas_fisica=</span><span class="st">"Practica.esport.o.fa.alguna.activitat.física."</span>,</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">Importancia_deporte=</span><span class="st">"De.l.1.al.10.quina.importancia.té.la.pràctica.de.l.esport.o.activitat.física.per.a.vostè."</span>,</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    Calidad_sueño<span class="ot">=</span><span class="st">"Té.una.bona.qualitat.del.son."</span>,</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">Cafe=</span><span class="st">"Consumeix.cafè."</span>,</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">Tabaco=</span><span class="st">"Consumeix.tabac."</span>,</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">Alcohol=</span><span class="st">"Consumeix.alcohol."</span>,</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">Bebida_gas=</span><span class="st">"Consumeix.begudes.amb.gas."</span>,</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">Dieta_saludable=</span><span class="st">"De..l.1.al.10.assenyali.si.segueix.una.dieta.equilibrada.i.saludable."</span>,</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">Diagnostico=</span><span class="st">"Ha.estat.diagnosticat.per.un.metge.o.metgessa.d.alguna.de.les.malalties.següents."</span>,</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">Patologia=</span><span class="st">"Si.ha.marcat.alguna.de.les.opcions.anterior..especifiqui.la.patologia."</span>,</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">Diagnostico_especialista=</span><span class="st">"Ha.estat.diagnosticat.per.un.especialista.mèdic..otorinolaringòleg..foniatra..d.alguna.lesió.a.les.cordes.vocals."</span>,</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>    <span class="at">Sintomas=</span><span class="st">"Aquest.mes.ha.tengut.algún.símptoma.vocal.dels.següents..Es.pot.marcar.més.d.una.opció"</span>,</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>    <span class="at">Operacion=</span><span class="st">"L.han.operat.de.les.cordes.vocals."</span>,</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>    <span class="at">Tiempo_alteracion=</span><span class="st">"Si.té.alguna.alteració.de.la.veu..recorda.quin.temps.fa.que.va.començar."</span>,</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>    <span class="at">Baja_voz=</span><span class="st">"En.alguna.ocasió..ha.estat.de.baixa.laboral.per.problemes.de.veu."</span>,</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>    <span class="at">Baja_larga=</span><span class="st">"Si.la.resposta.a.la.pregunta.anterior.és.afirmativa..indiqui.la.periodicitat..cada.any..trimestre.....i.la.durada.de.la.baixa.més.llarga.i.la.malaltia"</span>,</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>    <span class="at">Problema_curso22_23=</span><span class="st">"Ha.tengut.problemes.de.veu.importants.i.que.li.han.dificultat.la.feina.al.llarg.del.curs.2022.2023."</span>,</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>    <span class="at">Formacion_voz=</span><span class="st">"Té.formació.sobre.salut.vocal."</span>,</span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>    <span class="at">Medicacion=</span><span class="st">"Pren.alguna.o.algunes.de.les.medicacions.següents..Es.pot.marcar.més.d.una.opció"</span>,</span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>    <span class="at">Higiene_vocal=</span><span class="st">"Segueix.una.rutina.d.higiene.vocal."</span>,</span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>    <span class="at">Actividades=</span><span class="st">"Fa.alguna.de.les.activitats.següents..Es.pot.marcar.més.d.una.opció"</span>,</span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>    <span class="at">No_me_ecuchan=</span><span class="st">"La.gent.em.sent.amb.dificultat.a.causa.de.la.meva.veu"</span>,</span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>    <span class="at">No_me_escuchan_ruido=</span><span class="st">"La.gent.no.m.entén.en.llocs.sorollosos"</span>,</span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>    <span class="at">Alteracion_vida_social=</span><span class="st">"Els.meus.problemes.amb.la.veu.alteren.la.meva.vida.personal.i.social"</span>,</span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>    <span class="at">Desplazado_conversacion=</span><span class="st">"Em.sent.desplaçat.de.les.converses.per.la.meva.veu"</span>,</span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>    <span class="at">Rendimiento_laboral=</span><span class="st">"El.meu.problema.amb.la.veu.afecta.el.rendiment.laboral"</span>,</span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>    <span class="at">Tensar_producir_voz=</span><span class="st">"Not.que.necessit.tensar.la.gola..gargamella..per.produir.la.veu"</span>,</span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>    <span class="at">Calidad_imprevisible=</span><span class="st">"La.qualitat.de.la.meva.veu.és.imprevisible"</span>,</span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>    <span class="at">Me_molesta=</span><span class="st">"La.meva.veu.em.molesta"</span>,</span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>    <span class="at">Minusvalia=</span><span class="st">"La.meva.veu.em.fa.sentir.certa.minusvalidesa"</span>,</span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>    <span class="at">Gente_pregunta=</span><span class="st">"La.gent.em.pregunta..què.et.passa.amb.la.veu."</span></span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(raw_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 185
+Columns: 37
+$ ID                       &lt;int&gt; 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14…
+$ Importancia_voz          &lt;int&gt; 10, 10, 10, 10, 10, 10, 9, 9, 10, 10, 9, 10, …
+$ Sexo                     &lt;chr&gt; "Femení", "Femení", "Masculí", "Femení", "Fem…
+$ Lugar_trabajo            &lt;chr&gt; "Palma, Llucmajor, Algaida, Santa Eugènia, Ma…
+$ Cuerpo_docente           &lt;chr&gt; "Formació Professional", "Educació Secundària…
+$ Edad                     &lt;chr&gt; "Entre 36 i 50", "Entre 36 i 50", "Entre 36 i…
+$ Actividas_fisica         &lt;chr&gt; "Més de 150 min. per setmana", "Més de 150 mi…
+$ Importancia_deporte      &lt;int&gt; 10, 10, 10, 8, 10, 10, 10, 7, 10, 10, 7, 9, 7…
+$ Calidad_sueño            &lt;chr&gt; "Dorm bé i em despert descansat", "Dorm bé pe…
+$ Cafe                     &lt;chr&gt; "Diàriament", "Ocasionalment", "Diàriament", …
+$ Tabaco                   &lt;chr&gt; "Diariament", "No", "No", "Anteriorment (exfu…
+$ Alcohol                  &lt;chr&gt; "Ocasionalment", "Ocasionalment", "Setmanalme…
+$ Bebida_gas               &lt;chr&gt; "Mai", "Ocasionalment", "Diàriament", "Ocasio…
+$ Dieta_saludable          &lt;int&gt; 8, 6, 9, 6, 10, 10, 8, 8, 8, 8, 9, 9, 8, 7, 7…
+$ Diagnostico              &lt;chr&gt; "Cap de les esmentades anteriorment", "Cap de…
+$ Patologia                &lt;chr&gt; "", "", "", "", "Asma, al·lergia", "", "", ""…
+$ Diagnostico_especialista &lt;chr&gt; "No", "Si", "No", "Si", "No", "Si", "No", "No…
+$ Sintomas                 &lt;chr&gt; "Mucositat", "Fatiga vocal", "Veu ronca, esca…
+$ Operacion                &lt;chr&gt; "No", "No", "No", "No", "No", "No", "No", "No…
+$ Tiempo_alteracion        &lt;chr&gt; "No tenc cap alteració de la veu.", "Va comen…
+$ Baja_voz                 &lt;chr&gt; "No, mai he estat de baixa per un problema de…
+$ Baja_larga               &lt;chr&gt; "", "El curs escolar passat. Una setmana senc…
+$ Problema_curso22_23      &lt;chr&gt; "No", "Si", "Si", "No", "Si", "Si", "Si", "No…
+$ Formacion_voz            &lt;chr&gt; "Si, vaig fer un curs fa temps", "No, mai he …
+$ Medicacion               &lt;chr&gt; "Aspirina i antiinflamatoris no esteroideus",…
+$ Higiene_vocal            &lt;chr&gt; "No seguesc cap rutina per a la veu", "No seg…
+$ Actividades              &lt;chr&gt; "No faig cap activitat amb exigència vocal ex…
+$ No_me_ecuchan            &lt;chr&gt; "Mai", "Mai", "Mai", "Gairebé sempre", "Sempr…
+$ No_me_escuchan_ruido     &lt;chr&gt; "Mai", "A vegades", "Gairebé sempre", "Gaireb…
+$ Alteracion_vida_social   &lt;chr&gt; "Mai", "A vegades", "A vegades", "Gairebé mai…
+$ Desplazado_conversacion  &lt;chr&gt; "Mai", "Mai", "Mai", "Gairebé mai", "A vegade…
+$ Rendimiento_laboral      &lt;chr&gt; "Mai", "A vegades", "Gairebé mai", "Mai", "Ga…
+$ Tensar_producir_voz      &lt;chr&gt; "Mai", "A vegades", "Mai", "Mai", "A vegades"…
+$ Calidad_imprevisible     &lt;chr&gt; "Mai", "Mai", "Mai", "Mai", "Gairebé sempre",…
+$ Me_molesta               &lt;chr&gt; "Mai", "Mai", "Mai", "Mai", "Gairebé sempre",…
+$ Minusvalia               &lt;chr&gt; "Mai", "Mai", "Mai", "Mai", "Gairebé sempre",…
+$ Gente_pregunta           &lt;chr&gt; "Mai", "Mai", "Mai", "Mai", "Gairebé sempre",…</code></pre>
+</div>
+</div>
+<p>Observamos que hay 185 respuestas y 37 variables. Vamos a limpiar los nombres de las variables y a convertir las variables categóricas en factores, a excepción de las variables “importancia_voz”, “importancia_deporte” y “dieta_saludable” que las dejamos como variables cuantitativas discretas.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> janitor<span class="sc">::</span><span class="fu">clean_names</span>(raw_data) <span class="sc">%&gt;%</span> </span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>        <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="sc">-</span><span class="fu">c</span>(importancia_voz,</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>                         importancia_deporte,</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>                         dieta_saludable), as.factor))</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 185
+Columns: 37
+$ id                       &lt;fct&gt; 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14…
+$ importancia_voz          &lt;int&gt; 10, 10, 10, 10, 10, 10, 9, 9, 10, 10, 9, 10, …
+$ sexo                     &lt;fct&gt; Femení, Femení, Masculí, Femení, Femení, Feme…
+$ lugar_trabajo            &lt;fct&gt; "Palma, Llucmajor, Algaida, Santa Eugènia, Ma…
+$ cuerpo_docente           &lt;fct&gt; "Formació Professional", "Educació Secundària…
+$ edad                     &lt;fct&gt; Entre 36 i 50, Entre 36 i 50, Entre 36 i 50, …
+$ actividas_fisica         &lt;fct&gt; Més de 150 min. per setmana, Més de 150 min. …
+$ importancia_deporte      &lt;int&gt; 10, 10, 10, 8, 10, 10, 10, 7, 10, 10, 7, 9, 7…
+$ calidad_sueno            &lt;fct&gt; Dorm bé i em despert descansat, Dorm bé però …
+$ cafe                     &lt;fct&gt; Diàriament, Ocasionalment, Diàriament, Diària…
+$ tabaco                   &lt;fct&gt; Diariament, No, No, Anteriorment (exfumador),…
+$ alcohol                  &lt;fct&gt; Ocasionalment, Ocasionalment, Setmanalment, S…
+$ bebida_gas               &lt;fct&gt; Mai, Ocasionalment, Diàriament, Ocasionalment…
+$ dieta_saludable          &lt;int&gt; 8, 6, 9, 6, 10, 10, 8, 8, 8, 8, 9, 9, 8, 7, 7…
+$ diagnostico              &lt;fct&gt; "Cap de les esmentades anteriorment", "Cap de…
+$ patologia                &lt;fct&gt; "", "", "", "", "Asma, al·lergia", "", "", ""…
+$ diagnostico_especialista &lt;fct&gt; No, Si, No, Si, No, Si, No, No, Si, No, No, N…
+$ sintomas                 &lt;fct&gt; "Mucositat", "Fatiga vocal", "Veu ronca, esca…
+$ operacion                &lt;fct&gt; No, No, No, No, No, No, No, No, Si, No, No, N…
+$ tiempo_alteracion        &lt;fct&gt; No tenc cap alteració de la veu., Va començar…
+$ baja_voz                 &lt;fct&gt; "No, mai he estat de baixa per un problema de…
+$ baja_larga               &lt;fct&gt; "", "El curs escolar passat. Una setmana senc…
+$ problema_curso22_23      &lt;fct&gt; No, Si, Si, No, Si, Si, Si, No, No, No, No, N…
+$ formacion_voz            &lt;fct&gt; "Si, vaig fer un curs fa temps", "No, mai he …
+$ medicacion               &lt;fct&gt; "Aspirina i antiinflamatoris no esteroideus",…
+$ higiene_vocal            &lt;fct&gt; "No seguesc cap rutina per a la veu", "No seg…
+$ actividades              &lt;fct&gt; "No faig cap activitat amb exigència vocal ex…
+$ no_me_ecuchan            &lt;fct&gt; Mai, Mai, Mai, Gairebé sempre, Sempre, Gaireb…
+$ no_me_escuchan_ruido     &lt;fct&gt; Mai, A vegades, Gairebé sempre, Gairebé sempr…
+$ alteracion_vida_social   &lt;fct&gt; Mai, A vegades, A vegades, Gairebé mai, Gaire…
+$ desplazado_conversacion  &lt;fct&gt; Mai, Mai, Mai, Gairebé mai, A vegades, Mai, M…
+$ rendimiento_laboral      &lt;fct&gt; Mai, A vegades, Gairebé mai, Mai, Gairebé sem…
+$ tensar_producir_voz      &lt;fct&gt; Mai, A vegades, Mai, Mai, A vegades, A vegade…
+$ calidad_imprevisible     &lt;fct&gt; Mai, Mai, Mai, Mai, Gairebé sempre, A vegades…
+$ me_molesta               &lt;fct&gt; Mai, Mai, Mai, Mai, Gairebé sempre, Mai, Gair…
+$ minusvalia               &lt;fct&gt; Mai, Mai, Mai, Mai, Gairebé sempre, Mai, A ve…
+$ gente_pregunta           &lt;fct&gt; Mai, Mai, Mai, Mai, Gairebé sempre, A vegades…</code></pre>
+</div>
+</div>
+<p>Ahora, para calcular el índice de calidad de voz (VHI), vamos a seleccionar las variables desde la 28 a la 37 para convertirlas en cuantitativas discretas y a sumarlas para obtener el índice VHI.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>datos<span class="ot">&lt;-</span>data <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="dv">28</span><span class="sc">:</span><span class="dv">37</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="fu">everything</span>(), <span class="sc">~</span><span class="fu">case_when</span>(</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>     . <span class="sc">==</span> <span class="st">"Mai"</span> <span class="sc">~</span> <span class="dv">0</span>,</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>     . <span class="sc">==</span> <span class="st">"Gairebé mai"</span> <span class="sc">~</span> <span class="dv">1</span>,</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>     . <span class="sc">==</span> <span class="st">"A vegades"</span> <span class="sc">~</span> <span class="dv">2</span>,</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>     . <span class="sc">==</span> <span class="st">"Gairebé sempre"</span> <span class="sc">~</span> <span class="dv">3</span>,</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>     . <span class="sc">==</span> <span class="st">"Sempre"</span> <span class="sc">~</span> <span class="dv">4</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>   ))</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>   )</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>datos<span class="ot">&lt;-</span>datos <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">VHI=</span><span class="fu">rowSums</span>(datos))</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(datos) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 185
+Columns: 11
+$ no_me_ecuchan           &lt;dbl&gt; 0, 0, 0, 3, 4, 3, 2, 0, 1, 1, 0, 0, 1, 0, 1, 0…
+$ no_me_escuchan_ruido    &lt;dbl&gt; 0, 2, 3, 3, 1, 3, 1, 0, 2, 1, 0, 2, 3, 1, 2, 0…
+$ alteracion_vida_social  &lt;dbl&gt; 0, 2, 2, 1, 3, 1, 2, 0, 1, 1, 0, 0, 0, 1, 0, 0…
+$ desplazado_conversacion &lt;dbl&gt; 0, 0, 0, 1, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0…
+$ rendimiento_laboral     &lt;dbl&gt; 0, 2, 1, 0, 3, 2, 3, 1, 0, 1, 0, 0, 1, 1, 1, 0…
+$ tensar_producir_voz     &lt;dbl&gt; 0, 2, 0, 0, 2, 2, 2, 1, 1, 1, 0, 0, 2, 2, 1, 0…
+$ calidad_imprevisible    &lt;dbl&gt; 0, 0, 0, 0, 3, 2, 1, 1, 1, 1, 0, 0, 1, 0, 1, 0…
+$ me_molesta              &lt;dbl&gt; 0, 0, 0, 0, 3, 0, 1, 1, 2, 0, 1, 0, 0, 1, 1, 0…
+$ minusvalia              &lt;dbl&gt; 0, 0, 0, 0, 3, 0, 2, 0, 0, 0, 0, 0, 0, 0, 1, 0…
+$ gente_pregunta          &lt;dbl&gt; 0, 0, 0, 0, 3, 2, 0, 0, 2, 0, 0, 0, 0, 0, 1, 0…
+$ VHI                     &lt;dbl&gt; 0, 8, 6, 8, 27, 15, 14, 4, 10, 7, 1, 2, 8, 6, …</code></pre>
+</div>
+</div>
+<p>Por último, vamos a añadir la variable VHI al dataframe original y a eliminar las variables de la 28 a la 37.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>data<span class="ot">&lt;-</span>data <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="sc">-</span><span class="fu">c</span>(<span class="dv">28</span><span class="sc">:</span><span class="dv">37</span>))<span class="sc">%&gt;%</span> </span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>   <span class="fu">bind_cols</span>(<span class="at">VHI=</span>datos<span class="sc">$</span>VHI)</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(data) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 185
+Columns: 28
+$ id                       &lt;fct&gt; 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14…
+$ importancia_voz          &lt;int&gt; 10, 10, 10, 10, 10, 10, 9, 9, 10, 10, 9, 10, …
+$ sexo                     &lt;fct&gt; Femení, Femení, Masculí, Femení, Femení, Feme…
+$ lugar_trabajo            &lt;fct&gt; "Palma, Llucmajor, Algaida, Santa Eugènia, Ma…
+$ cuerpo_docente           &lt;fct&gt; "Formació Professional", "Educació Secundària…
+$ edad                     &lt;fct&gt; Entre 36 i 50, Entre 36 i 50, Entre 36 i 50, …
+$ actividas_fisica         &lt;fct&gt; Més de 150 min. per setmana, Més de 150 min. …
+$ importancia_deporte      &lt;int&gt; 10, 10, 10, 8, 10, 10, 10, 7, 10, 10, 7, 9, 7…
+$ calidad_sueno            &lt;fct&gt; Dorm bé i em despert descansat, Dorm bé però …
+$ cafe                     &lt;fct&gt; Diàriament, Ocasionalment, Diàriament, Diària…
+$ tabaco                   &lt;fct&gt; Diariament, No, No, Anteriorment (exfumador),…
+$ alcohol                  &lt;fct&gt; Ocasionalment, Ocasionalment, Setmanalment, S…
+$ bebida_gas               &lt;fct&gt; Mai, Ocasionalment, Diàriament, Ocasionalment…
+$ dieta_saludable          &lt;int&gt; 8, 6, 9, 6, 10, 10, 8, 8, 8, 8, 9, 9, 8, 7, 7…
+$ diagnostico              &lt;fct&gt; "Cap de les esmentades anteriorment", "Cap de…
+$ patologia                &lt;fct&gt; "", "", "", "", "Asma, al·lergia", "", "", ""…
+$ diagnostico_especialista &lt;fct&gt; No, Si, No, Si, No, Si, No, No, Si, No, No, N…
+$ sintomas                 &lt;fct&gt; "Mucositat", "Fatiga vocal", "Veu ronca, esca…
+$ operacion                &lt;fct&gt; No, No, No, No, No, No, No, No, Si, No, No, N…
+$ tiempo_alteracion        &lt;fct&gt; No tenc cap alteració de la veu., Va començar…
+$ baja_voz                 &lt;fct&gt; "No, mai he estat de baixa per un problema de…
+$ baja_larga               &lt;fct&gt; "", "El curs escolar passat. Una setmana senc…
+$ problema_curso22_23      &lt;fct&gt; No, Si, Si, No, Si, Si, Si, No, No, No, No, N…
+$ formacion_voz            &lt;fct&gt; "Si, vaig fer un curs fa temps", "No, mai he …
+$ medicacion               &lt;fct&gt; "Aspirina i antiinflamatoris no esteroideus",…
+$ higiene_vocal            &lt;fct&gt; "No seguesc cap rutina per a la veu", "No seg…
+$ actividades              &lt;fct&gt; "No faig cap activitat amb exigència vocal ex…
+$ VHI                      &lt;dbl&gt; 0, 8, 6, 8, 27, 15, 14, 4, 10, 7, 1, 2, 8, 6,…</code></pre>
+</div>
+</div>
+</section>
+<section id="p1-los-profesores-dan-menos-importancia-a-la-voz-que-al-deporte-o-alimentación" class="level2">
+<h2 class="anchored" data-anchor-id="p1-los-profesores-dan-menos-importancia-a-la-voz-que-al-deporte-o-alimentación">P1: ¿Los profesores dan menos importancia a la voz que al deporte o alimentación?</h2>
+</section>
+<section id="p2-hay-mayor-incidencia-de-síntomas-vocales-en-maestras-de-infantil" class="level2">
+<h2 class="anchored" data-anchor-id="p2-hay-mayor-incidencia-de-síntomas-vocales-en-maestras-de-infantil">P2: ¿Hay mayor incidencia de síntomas vocales en maestras de infantil?</h2>
+</section>
+<section id="p3-hay-alguna-edad-con-mayor-incidencia-de-síntomas-vocales" class="level2">
+<h2 class="anchored" data-anchor-id="p3-hay-alguna-edad-con-mayor-incidencia-de-síntomas-vocales">P3: ¿Hay alguna edad con mayor incidencia de síntomas vocales?</h2>
+</section>
+<section id="p4-qué-factores-influyen-en-una-mala-calidad-de-voz-café-tabaco-alcohol-bebidas-con-gas-etc" class="level2">
+<h2 class="anchored" data-anchor-id="p4-qué-factores-influyen-en-una-mala-calidad-de-voz-café-tabaco-alcohol-bebidas-con-gas-etc">P4: ¿Qué factores influyen en una mala calidad de voz? Café, tabaco, alcohol, bebidas con gas, etc</h2>
+</section>
+<section id="p5-hay-alguna-enfermedad-que-influya-en-la-calidad-de-la-voz-epoc-reflujo-endocrina-cardio-vascular-etc" class="level2">
+<h2 class="anchored" data-anchor-id="p5-hay-alguna-enfermedad-que-influya-en-la-calidad-de-la-voz-epoc-reflujo-endocrina-cardio-vascular-etc">P5: ¿Hay alguna enfermedad que influya en la calidad de la voz? EPOC, reflujo, endocrina, cardio-vascular, etc</h2>
+<p>Considerada la base de datos común limpiada, empezaremos por filtrar los datos por enfermedades:</p>
+<p>Parece haber más niveles de los que hemos detectado que corresponden con personas que han contestado a la opción “Otro: ___” y escrito distintas enfermedades.</p>
+<p>Para afrontar este punto cambiareos los niveles de la variable diagnostico con el doble objetivo de, por un lado, hacer crecer los tamaños de las muestras de cada enfermedad y, por otro lado, poder representar mejor los datos:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>data_opt <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">diagnostico =</span> <span class="fu">fct_collapse</span>(diagnostico,</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>                                    </span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Gastrointestinal"</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"coleacistitis"</span>, <span class="st">"Disfàgia"</span>, <span class="st">"Gastritis  crònica i al·lèrgia (no permet marca +1 opció)"</span>, <span class="st">"Gastrointestinal (Refluix gastro-esfofàgic)"</span>, <span class="st">"Gastrointestinal i al·lèrgia (no me deixa marcar més d'una opció)"</span>, <span class="st">"problemes gastrointestinal: restrenyiment, problemes de gasos...."</span>),</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Endocrina"</span>  <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"Endocrina"</span>, <span class="st">"SOP"</span>),</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Patologia d'esquena crónica"</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"Patologia d'esquena crónica"</span>, <span class="st">"Hernia de hiatus, trocanteritis, lumbars"</span>),</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Pulmonar"</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"Faringitis crónica"</span>, <span class="st">"Pulmonar (asma, al·lèrgia, EPOC)"</span>, <span class="st">"Noc"</span>),</span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Cardio-vascular"</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"Cardio-vascular"</span>, <span class="st">"cardiopatía congénita"</span> , <span class="st">"Patrón de Brugada"</span>, <span class="st">"Tensió alta"</span>),</span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Patologia ansio-depresiva crónica"</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"Patologia ansio-depresiva crónica"</span>),</span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Sense Patologia"</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"-"</span>, <span class="st">"cap"</span>, <span class="st">"Cap de les esmentades anteriorment"</span>, <span class="st">"De cap malaltia crònica."</span>),</span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a>    <span class="co"># "Cordes vocals" = c("Càncer cordes vocals", "disfonia", "Nódulo cuerdas vocales", "Nòduls"),</span></span>
+<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Patologies no considerades"</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"Insuficiencia renal "</span>, <span class="st">"Lupus eritematoso sistémico"</span>, <span class="st">"Migranya"</span>, <span class="st">"osteopenia"</span>, <span class="st">"pedres al ronyó"</span>, <span class="st">"Síndrome Raynaud"</span>, <span class="st">"Tumor ronyó"</span>, <span class="st">"Vertigen"</span>, <span class="st">"Càncer cordes vocals"</span>, <span class="st">"disfonia"</span>, <span class="st">"Nódulo cuerdas vocales"</span>, <span class="st">"Nòduls"</span>) </span>
+<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a>  ))</span>
+<span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a><span class="fu">levels</span>(data_opt<span class="sc">$</span>diagnostico)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Sense Patologia"                   "Patologies no considerades"       
+[3] "Cardio-vascular"                   "Gastrointestinal"                 
+[5] "Endocrina"                         "Pulmonar"                         
+[7] "Patologia d'esquena crónica"       "Patologia ansio-depresiva crónica"</code></pre>
+</div>
+</div>
+<p>Hemos conservado los grupos preestablecidos y creado dos más con los individuos que han ecrito sus enfermedades en la opción “Otro: ______”. Han sido Altres que reune enfermedades que no se pueden asociar con ningún grupo anterior, y Cordes_vocals que reune enfermedades que afectan directamente en las cuerdas vocales como cáncer o nódulos en esa zona.</p>
+<p>Mostramos la cantidad de inidividuos en cada nivel:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>data_opt <span class="sc">%&gt;%</span> <span class="fu">count</span>(diagnostico)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                        diagnostico   n
+1                   Sense Patologia 106
+2        Patologies no considerades  12
+3                   Cardio-vascular   7
+4                  Gastrointestinal  13
+5                         Endocrina  19
+6                          Pulmonar  16
+7       Patologia d'esquena crónica   8
+8 Patologia ansio-depresiva crónica   4</code></pre>
+</div>
+</div>
+<p>Y volvemos a representar los datos (observamos que los representamos ordenandolos de menos apariciones a más):</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>data_opt <span class="sc">%&gt;%</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">diagnostico =</span> <span class="fu">fct_reorder</span>(diagnostico, VHI, <span class="at">.fun=</span><span class="st">'length'</span> )) <span class="sc">%&gt;%</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>( <span class="fu">aes</span>(<span class="at">x=</span>diagnostico, <span class="at">y=</span>VHI, <span class="at">fill =</span> diagnostico)) <span class="sc">+</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_fill_viridis</span>(<span class="at">discrete =</span> <span class="cn">TRUE</span>, <span class="at">alpha=</span><span class="fl">0.6</span>) <span class="sc">+</span></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_jitter</span>(<span class="at">color=</span><span class="st">"black"</span>, <span class="at">size=</span><span class="fl">0.4</span>, <span class="at">alpha=</span><span class="fl">0.9</span>, <span class="at">position =</span> <span class="fu">position_jitter</span>(<span class="at">width =</span> <span class="fl">0.05</span>)) <span class="sc">+</span></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_ipsum</span>() <span class="sc">+</span></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(</span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>      <span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">50</span>, <span class="at">hjust =</span> <span class="fl">0.9</span>, <span class="at">size =</span> <span class="dv">8</span>),</span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>      <span class="at">legend.position=</span><span class="st">"none"</span>,</span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>      <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">11</span>)</span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">+</span></span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggtitle</span>(<span class="st">"VHI por enfermedad"</span>) <span class="sc">+</span></span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a>    <span class="fu">xlab</span>(<span class="st">"Grupos según diagnostico"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Resultados_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Ahora con un gráfico de violines para, tal vez, comprender mejor los datos:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>data_opt <span class="sc">%&gt;%</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">diagnostico =</span> <span class="fu">fct_reorder</span>(diagnostico, VHI, <span class="at">.fun=</span><span class="st">'length'</span> )) <span class="sc">%&gt;%</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>( <span class="fu">aes</span>(<span class="at">x=</span>diagnostico, <span class="at">y=</span>VHI, <span class="at">fill=</span>diagnostico)) <span class="sc">+</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_violin</span>() <span class="sc">+</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_fill_viridis</span>(<span class="at">discrete =</span> <span class="cn">TRUE</span>, <span class="at">alpha=</span><span class="fl">0.6</span>, <span class="at">option=</span><span class="st">"A"</span>) <span class="sc">+</span></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_ipsum</span>() <span class="sc">+</span></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(</span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>      <span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">50</span>, <span class="at">hjust =</span> <span class="fl">0.9</span>, <span class="at">size =</span> <span class="dv">9</span>),</span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>      <span class="at">legend.position=</span><span class="st">"none"</span>,</span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>      <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">11</span>)</span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">+</span></span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggtitle</span>(<span class="st">"VHI por enfermedad"</span>) <span class="sc">+</span></span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">xlab</span>(<span class="st">"Grupos según diagnostico"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Resultados_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Comprovemos la normalidad de los datos para intentar aplicar un ANOVA paramétrico:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co">#modelo_anova &lt;- aov(VHI ~ diagnostico, data = data_opt)</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="co">#summary(modelo_anova)</span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="co">#residuos &lt;- residuals(modelo_anova)</span></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a><span class="fu">shapiro.test</span>(data_opt[data_opt<span class="sc">$</span>diagnostico<span class="sc">==</span><span class="st">"Sense Patologia"</span>,]<span class="sc">$</span>VHI)<span class="sc">$</span>p.value</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 3.315323e-07</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">shapiro.test</span>(data_opt[data_opt<span class="sc">$</span>diagnostico<span class="sc">==</span><span class="st">"Endocrina"</span>,]<span class="sc">$</span>VHI)<span class="sc">$</span>p.value</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.3994991</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">shapiro.test</span>(data_opt[data_opt<span class="sc">$</span>diagnostico<span class="sc">==</span><span class="st">"Pulmonar"</span>,]<span class="sc">$</span>VHI)<span class="sc">$</span>p.value</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.003624742</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">shapiro.test</span>(data_opt[data_opt<span class="sc">$</span>diagnostico<span class="sc">==</span><span class="st">"Gastrointestinal"</span>,]<span class="sc">$</span>VHI)<span class="sc">$</span>p.value</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.4780499</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">shapiro.test</span>(data_opt[data_opt<span class="sc">$</span>diagnostico<span class="sc">==</span><span class="st">"Patologies no considerades"</span>,]<span class="sc">$</span>VHI)<span class="sc">$</span>p.value</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.06529182</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">shapiro.test</span>(data_opt[data_opt<span class="sc">$</span>diagnostico<span class="sc">==</span><span class="st">"Patologia d'esquena crónica"</span>,]<span class="sc">$</span>VHI)<span class="sc">$</span>p.value</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.1406557</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">shapiro.test</span>(data_opt[data_opt<span class="sc">$</span>diagnostico<span class="sc">==</span><span class="st">"Cardio-vascular"</span>,]<span class="sc">$</span>VHI)<span class="sc">$</span>p.value</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.3248245</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">shapiro.test</span>(data_opt[data_opt<span class="sc">$</span>diagnostico<span class="sc">==</span><span class="st">"Patologia ansio-depresiva crónica"</span>,]<span class="sc">$</span>VHI)<span class="sc">$</span>p.value</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.995064</code></pre>
+</div>
+</div>
+<p>Notem que podem asumir que totes segueixen una distribució normal excepte els grups</p>
+<p><strong>Grupo tulipanes_alirios: Biel, Carlos, Javi</strong></p>
+<p>Solo han resumido las enfermedades, falta cruzar con la calidad de la voz. Pensad en un boxplot entre cada enfermedad y el score, en un mismo gráfico.</p>
+<p>Luego, hacer un ANOVA de bloques para ver si hay diferencias significativas entre las enfermedades.</p>
+<p><a href="https://aprender-uib.github.io/MatesII/anova.html#anova-de-blocs">Ayuda</a>.</p>
+</section>
+<section id="p6-hay-más-bajas-por-tema-de-voz-al-principio-del-curso" class="level2">
+<h2 class="anchored" data-anchor-id="p6-hay-más-bajas-por-tema-de-voz-al-principio-del-curso">P6: ¿Hay más bajas por tema de voz al principio del curso?</h2>
+</section>
+<section id="p7-el-cuidado-de-voz-mejora-la-calidad-de-la-misma-cuál-es-la-mejor-medida" class="level2">
+<h2 class="anchored" data-anchor-id="p7-el-cuidado-de-voz-mejora-la-calidad-de-la-misma-cuál-es-la-mejor-medida">P7: ¿El cuidado de voz mejora la calidad de la misma? ¿Cuál es la mejor medida?</h2>
+</section>
+<section id="p8-hay-alguna-medicación-que-influya-en-la-calidad-de-la-voz" class="level1">
+<h1>P8: ¿Hay alguna medicación que influya en la calidad de la voz?</h1>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
