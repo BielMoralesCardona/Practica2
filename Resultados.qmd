@@ -12,7 +12,7 @@ Rendering:
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE)
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
 library(tidyverse)
 library(readr)
 library(hrbrthemes)
@@ -24,8 +24,7 @@ library(forcats)
 ## Lectura y limpieza de los datos
 
 Leemos los datos del fichero "Salut_Vocal_anonimizada.csv" y cambiamos los nombres de las variables.
-
-```{r}
+```{r, include=FALSE}
 raw_data<-read.csv("Salut_Vocal_anonimizada.csv",
                    header=TRUE, sep=";", encoding='UTF-8')
 
@@ -69,7 +68,7 @@ raw_data <- raw_data %>% select(-X) %>%
     Gente_pregunta="La.gent.em.pregunta..què.et.passa.amb.la.veu."
 )
 
-glimpse(raw_data)
+
 ```  
 
 Observamos que hay 185 respuestas y 37 variables. Vamos a limpiar los nombres de las variables y a convertir las variables categóricas en factores, a excepción de las variables "importancia_voz", "importancia_deporte" y "dieta_saludable" que las dejamos como variables cuantitativas discretas.
@@ -80,11 +79,9 @@ data <- janitor::clean_names(raw_data) %>%
                          importancia_deporte,
                          dieta_saludable), as.factor))
 
-glimpse(data)
-
 ```  
 
-Ahora, para calcular el índice de calidad de voz (VHI), vamos a seleccionar las variables desde la 28 a la 37 para convertirlas en cuantitativas discretas y a sumarlas para obtener el índice VHI.
+Ahora, para calcular el índice de calidad de voz (VHI), vamos a seleccionar las variables desde la 28 a la 37 para convertirlas en cuantitativas discretas y a sumarlas para obtener el índice VHI, que añadiremos en una columna nueva (y eliminaremos todas las que no usemos).
 
 ```{r}
 datos<-data %>% select(28:37) %>% 
@@ -98,16 +95,12 @@ datos<-data %>% select(28:37) %>%
    )
 
 datos<-datos %>% mutate(VHI=rowSums(datos))
-
-glimpse(datos) 
 ```
 
-Por último, vamos a añadir la variable VHI al dataframe original y a eliminar las variables de la 28 a la 37.
-
 ```{r}
-data<-data %>% select(-c(28:37))%>% 
+data<-data %>% select(c(15))%>% 
    bind_cols(VHI=datos$VHI)
-glimpse(data) 
+glimpse(data)
 ```
 
 
@@ -142,9 +135,7 @@ data_opt <- data %>%
     "Patologia ansio-depresiva crónica" = c("Patologia ansio-depresiva crónica"),
     
     "Sense Patologia" = c("-", "cap", "Cap de les esmentades anteriorment", "De cap malaltia crònica."),
-    
-    # "Cordes vocals" = c("Càncer cordes vocals", "disfonia", "Nódulo cuerdas vocales", "Nòduls"),
-    
+
     "Patologies no considerades" = c("Insuficiencia renal ", "Lupus eritematoso sistémico", "Migranya", "osteopenia", "pedres al ronyó", "Síndrome Raynaud", "Tumor ronyó", "Vertigen", "Càncer cordes vocals", "disfonia", "Nódulo cuerdas vocales", "Nòduls") 
     
   ))
@@ -152,7 +143,7 @@ data_opt <- data %>%
 levels(data_opt$diagnostico)
 ```
 
-Hemos conservado los grupos preestablecidos y creado dos más con los individuos que han ecrito sus enfermedades en la opción "Otro: ______". Han sido Altres que reune enfermedades que no se pueden asociar con ningún grupo anterior, y Cordes_vocals que reune enfermedades que afectan directamente en las cuerdas vocales como cáncer o nódulos en esa zona.
+Hemos conservado los grupos preestablecidos y distribuido las respuestas de "Otro: ____" según el tipo de enfermedad.
 
 Mostramos la cantidad de inidividuos en cada nivel:
 ```{r}
@@ -160,7 +151,7 @@ data_opt %>% count(diagnostico)
 ```
 
 
-Y volvemos a representar los datos (observamos que los representamos ordenandolos de menos apariciones a más):
+Llegados aquí, vamos a representar los datos (observamos que los mostramos ordenándolos de menos apariciones a más):
 ```{r}
 data_opt %>%
   mutate(diagnostico = fct_reorder(diagnostico, VHI, .fun='length' )) %>%
@@ -195,65 +186,43 @@ data_opt %>%
     xlab("Grupos según diagnostico")
 ```
 
-Comprovemos la normalidad de los datos para intentar aplicar un ANOVA paramétrico:
+A continuació, comprovamos la normalidad de los datos para intentar aplicar un ANOVA paramétrico pero observamos que el p-valor del nivel "Sense Patologia" es muy pequeño, por lo cual, presenta suficientes evidencias de que no sigue una distriución normal. Como queremos comparar las enfermedades con este grupo, no podremos aplicar un ANOVA paramétrico:
 
 
 
-```{r}
-#modelo_anova <- aov(VHI ~ diagnostico, data = data_opt)
-
-#summary(modelo_anova)
-
-#residuos <- residuals(modelo_anova)
-
+```{r, echo = TRUE}
 shapiro.test(data_opt[data_opt$diagnostico=="Sense Patologia",]$VHI)$p.value
+```
+```{r}
+#shapiro.test(data_opt[data_opt$diagnostico=="Endocrina",]$VHI)$p.value
+```
+```{r}
+#shapiro.test(data_opt[data_opt$diagnostico=="Pulmonar",]$VHI)$p.value
+```
+```{r}
+#shapiro.test(data_opt[data_opt$diagnostico=="Gastrointestinal",]$VHI)$p.value
+```
+```{r}
+#shapiro.test(data_opt[data_opt$diagnostico=="Patologies no considerades",]$VHI)$p.value
+```
+```{r}
+#shapiro.test(data_opt[data_opt$diagnostico=="Patologia d'esquena crónica",]$VHI)$p.value
+```
+```{r}
+#shapiro.test(data_opt[data_opt$diagnostico=="Cardio-vascular",]$VHI)$p.value
+```
+```{r}
+#shapiro.test(data_opt[data_opt$diagnostico=="Patologia ansio-depresiva crónica",]$VHI)$p.value
+```
 
-```
-```{r}
-shapiro.test(data_opt[data_opt$diagnostico=="Endocrina",]$VHI)$p.value
-```
-```{r}
-shapiro.test(data_opt[data_opt$diagnostico=="Pulmonar",]$VHI)$p.value
-```
-```{r}
-shapiro.test(data_opt[data_opt$diagnostico=="Gastrointestinal",]$VHI)$p.value
-```
-```{r}
-shapiro.test(data_opt[data_opt$diagnostico=="Patologies no considerades",]$VHI)$p.value
-```
-```{r}
-shapiro.test(data_opt[data_opt$diagnostico=="Patologia d'esquena crónica",]$VHI)$p.value
-```
-```{r}
-shapiro.test(data_opt[data_opt$diagnostico=="Cardio-vascular",]$VHI)$p.value
-```
-```{r}
-shapiro.test(data_opt[data_opt$diagnostico=="Patologia ansio-depresiva crónica",]$VHI)$p.value
-```
+Tenemos que comprovar las medias con un test no paramétrico. Utilicemos el método de Wilcox por parejas y veamos el p-valor de la comparación entre "Sense Patologia" y los grupos de enfermedades.
 
-Notemos que podemos asumir que todas siguen una distribución normal excepot los grupos "Sense patologia" y "Pulmonar". De este modo, no podemos continuar la prueba con un test paramétrico, tenemos que comprovar las medias con un test de ANOVA no paramétrico.
 
-```{r}
-friedman.test(VHI ~ diagnostico, data = data_opt)
-```
-no hay dif???
-
-```{r}
+```{r, echo = TRUE}
 pairwise.wilcox.test(data_opt$VHI, data_opt$diagnostico, p.adjust.method = "bonferroni")
 ```
 
-
-**Grupo tulipanes_alirios: Biel, Carlos, Javi**
-
-Solo han resumido las enfermedades, falta cruzar con la calidad de la voz.
-Pensad en un boxplot entre cada enfermedad y el score, en un mismo gráfico.
-
-Luego, hacer un ANOVA de bloques para ver si hay diferencias significativas entre las enfermedades.
-
-[Ayuda](https://aprender-uib.github.io/MatesII/anova.html#anova-de-blocs).
-
-
-
+Como todos dan 1, no hay diferencias significativas pero es posible que si el tamaño de la muestra no fuese tan pequeño, los resultados hubiesen sido distintos.
 
 ## P6: ¿Hay más bajas por tema de voz al principio del curso?
 ## P7: ¿El cuidado de voz mejora la calidad de la misma? ¿Cuál es la mejor medida?
