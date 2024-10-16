@@ -215,14 +215,14 @@ shapiro.test(data_opt[data_opt$diagnostico=="Sense Patologia",]$VHI)$p.value
 #shapiro.test(data_opt[data_opt$diagnostico=="Patologia ansio-depresiva crónica",]$VHI)$p.value
 ```
 
-Tenemos que comprovar las medias con un test no paramétrico. Utilicemos el método de Wilcox por parejas y veamos el p-valor de la comparación entre "Sense Patologia" y los grupos de enfermedades.
-
+Tenemos que comprovar las medias con un test no paramétrico. Utilicemos el método de Kruskal para comparar las medias entre "Sense Patologia" y los individos que tienen "Patologia d'esquena crónica" que son los más distintos como podemos ver en el boxplot:
 
 ```{r, echo = TRUE}
-pairwise.wilcox.test(data_opt$VHI, data_opt$diagnostico, p.adjust.method = "bonferroni")
+pato_esquena <- data_opt %>% filter(diagnostico == "Patologia d'esquena crónica" | diagnostico == "Sense Patologia")
+kruskal.test(VHI~diagnostico, data=pato_esquena)
 ```
+Como el p-valor es grande, concluimos que no hay diferencia significativa entre sus medianas.
 
-Como todos dan 1, no hay diferencias significativas pero es posible que si el tamaño de la muestra no fuese tan pequeño, los resultados hubiesen sido distintos.
 
 ## P6: ¿Hay más bajas por tema de voz al principio del curso?
 ## P7: ¿El cuidado de voz mejora la calidad de la misma? ¿Cuál es la mejor medida?

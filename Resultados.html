@@ -201,44 +201,19 @@ $ VHI         &lt;dbl&gt; 0, 8, 6, 8, 27, 15, 14, 4, 10, 7, 1, 2, 8, 6, 9, 0, 6,
 <pre><code>[1] 3.315323e-07</code></pre>
 </div>
 </div>
-<p>Tenemos que comprovar las medias con un test no paramétrico. Utilicemos el método de Wilcox por parejas y veamos el p-valor de la comparación entre “Sense Patologia” y los grupos de enfermedades.</p>
+<p>Tenemos que comprovar las medias con un test no paramétrico. Utilicemos el método de Kruskal para comparar las medias entre “Sense Patologia” y los individos que tienen “Patologia d’esquena crónica” que son los más distintos como podemos ver en el boxplot:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pairwise.wilcox.test</span>(data_opt<span class="sc">$</span>VHI, data_opt<span class="sc">$</span>diagnostico, <span class="at">p.adjust.method =</span> <span class="st">"bonferroni"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>pato_esquena <span class="ot">&lt;-</span> data_opt <span class="sc">%&gt;%</span> <span class="fu">filter</span>(diagnostico <span class="sc">==</span> <span class="st">"Patologia d'esquena crónica"</span> <span class="sc">|</span> diagnostico <span class="sc">==</span> <span class="st">"Sense Patologia"</span>)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">kruskal.test</span>(VHI<span class="sc">~</span>diagnostico, <span class="at">data=</span>pato_esquena)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
-    Pairwise comparisons using Wilcoxon rank sum test with continuity correction 
+    Kruskal-Wallis rank sum test
 
-data:  data_opt$VHI and data_opt$diagnostico 
-
-                                  Sense Patologia Patologies no considerades
-Patologies no considerades        1               -                         
-Cardio-vascular                   1               1                         
-Gastrointestinal                  1               1                         
-Endocrina                         1               1                         
-Pulmonar                          1               1                         
-Patologia d'esquena crónica       1               1                         
-Patologia ansio-depresiva crónica 1               1                         
-                                  Cardio-vascular Gastrointestinal Endocrina
-Patologies no considerades        -               -                -        
-Cardio-vascular                   -               -                -        
-Gastrointestinal                  1               -                -        
-Endocrina                         1               1                -        
-Pulmonar                          1               1                1        
-Patologia d'esquena crónica       1               1                1        
-Patologia ansio-depresiva crónica 1               1                1        
-                                  Pulmonar Patologia d'esquena crónica
-Patologies no considerades        -        -                          
-Cardio-vascular                   -        -                          
-Gastrointestinal                  -        -                          
-Endocrina                         -        -                          
-Pulmonar                          -        -                          
-Patologia d'esquena crónica       1        -                          
-Patologia ansio-depresiva crónica 1        1                          
-
-P value adjustment method: bonferroni </code></pre>
+data:  VHI by diagnostico
+Kruskal-Wallis chi-squared = 0.0011136, df = 1, p-value = 0.9734</code></pre>
 </div>
 </div>
-<p>Como todos dan 1, no hay diferencias significativas pero es posible que si el tamaño de la muestra no fuese tan pequeño, los resultados hubiesen sido distintos.</p>
+<p>Como el p-valor es grande, concluimos que no hay diferencia significativa entre sus medianas.</p>
 </section>
 <section id="p6-hay-más-bajas-por-tema-de-voz-al-principio-del-curso" class="level2">
 <h2 class="anchored" data-anchor-id="p6-hay-más-bajas-por-tema-de-voz-al-principio-del-curso">P6: ¿Hay más bajas por tema de voz al principio del curso?</h2>
